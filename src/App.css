@@ -72,9 +72,34 @@ button {
  }
 
  .timer{
-   animation: timer 3s linear;
+  height: 50px;
+   overflow-y: hidden;
+   
+ }
+
+ .timer__wrapper{
+   text-align: center;
+   font-size: 24px;
+   
+    overflow-y: hidden;
+    transform: translateY(60px);
  }
 
  @keyframes timer {
-   
+   25%{
+    transform: translateY(0px);
+   }
+   50%{
+    transform: translateY(-60px);
+  }
+  75%{
+    transform: translateY(-120px);
+  }
+  100%{
+    transform: translateY(-180px);
+  }
+ }
+
+ .PRESS{
+  margin-TOP: 100px;
  }

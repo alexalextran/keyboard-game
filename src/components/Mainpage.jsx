@@ -11,7 +11,7 @@ const Mainpage = () => {
  
 
 function makeid() {
-    document.querySelector(".RESULT").innerHTML = "GO!";
+    document.querySelector(".RESULT").innerHTML = " ";
     var possible = "abcdefghijklmnopqrstuvwxyz0123456789`-_=+[{]}|;:',<.>/!@#$%^&*()?";
 
     for (var i = 0; i < level; i++)
@@ -31,7 +31,12 @@ function makeid() {
       console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
      
       if(name == keyvalue){
-        document.querySelector(".RESULT").innerHTML = "NICE!";
+        document.querySelector(".timer__wrapper").style.animation = ""
+        void document.querySelector(".timer__wrapper").offsetWidth; 
+        document.querySelector(".RESULT").innerHTML = "NICE!";        
+       starttimer()
+        setTimeout(makeid, 4000)
+
       }
     },
     false
@@ -40,7 +45,9 @@ function makeid() {
   }
 
   
-
+function starttimer(){
+    document.querySelector(".timer__wrapper").style.animation = "timer 4s linear"
+}
   
 
 
@@ -48,7 +55,13 @@ function makeid() {
 
   return (
     <section>
-      <button onClick={() => setTimeout(makeid, 3000)}></button>
+      <button onClick={() => 
+
+      {starttimer()
+      setTimeout(makeid, 4000)
+      }}>
+
+      </button>
       <div className="header">
         <h1>Welcome to Reakt</h1>
         <p>Where we test how well you know your keyboard!</p>
@@ -59,7 +72,9 @@ function makeid() {
         <button> Start </button>
       </div>
 
-      <div className="timer">3 2 1</div>
+      <div className="timer">
+      <div className="timer__wrapper"><h1>3</h1> <h1>2</h1> <h1>1</h1><h1 style={{color: "red"}}>GO!</h1></div>
+      </div>
       <div className="PRESS"></div>
 
       <div className="RESULT"></div>
