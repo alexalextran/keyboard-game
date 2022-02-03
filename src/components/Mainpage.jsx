@@ -22,15 +22,18 @@ function makeid() {
     
     
     document.addEventListener(
-    "keyup",
+    "keypress",
     (event) => {
       event.stopImmediatePropagation();
       var name = event.key;
       var code = event.code;
      
       console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+
+      document.querySelector(".key").innerHTML = name;
      
       if(name == keyvalue){
+        keyvalue=""
         document.querySelector(".timer__wrapper").style.animation = ""
         void document.querySelector(".timer__wrapper").offsetWidth; 
         document.querySelector(".RESULT").innerHTML = "NICE!";        
@@ -78,6 +81,12 @@ function starttimer(){
       <div className="PRESS"></div>
 
       <div className="RESULT"></div>
+
+      
+      <div className="KEY__ENTERED">
+          <p>Last Key Pressed</p>
+          <p className="key"></p>
+      </div>
     </section>
   );
 };

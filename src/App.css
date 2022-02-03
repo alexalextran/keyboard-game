@@ -101,5 +101,23 @@ button {
  }
 
  .PRESS{
-  margin-TOP: 100px;
+  margin-TOP: 70px;
+  font-size: 60px;
+  border-radius: 50px;
+  animation: float 1s infinite alternate-reverse;
+
+ }
+
+ .KEY__ENTERED{
+   margin-top: 30px; 
+ }
+
+ @keyframes float{
+   0%{
+
+   }
+   100%{
+     transform: translateY(10px);
+
+   }
  }
