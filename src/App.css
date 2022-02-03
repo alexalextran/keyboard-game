@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.9px;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  word-spacing: 1.2px;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+ background-color: rgb(23,149,216);
+
+  background-attachment:fixed;
+  height:100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section{
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.tutorial{
+  top: 50px;
+  position: absolute;
+  height: 300px;
+  width: fit-content;
+  width: 500px;
+  border-radius: 40px;
+  background-color: rgb(245,245,245);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  margin: 70px 0px;
+  font-size: 28px;
 }
+
+/* From cssbuttons.io by @adamgiebl */
+button {
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
+  background-color: #2ecc71;
+  border: none;
+  border-bottom: 9px solid #27ae60;
+  text-shadow: 0px -2px #27ae60;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+ }
+ 
+  button:active {
+  -webkit-transform: translate(0px,5px);
+  -ms-transform: translate(0px,5px);
+  transform: translate(0px,5px);
+  border-bottom: 1px solid #2ecc71;
+ }
+
+ .timer{
+   animation: timer 3s linear;
+ }
+
+ @keyframes timer {
+   
+ }
