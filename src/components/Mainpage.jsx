@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import heart from '../assets/heartimage.png'
 
 const Mainpage = () => {
   var keyvalue = "Start!";
   var level = 1;
   var streak = 0
+  var life = 2
+  var gameover = false
 
   function makeid(difficulty) {
+    if(gameover==true){
+      return
+    }
     document.querySelector(".RESULT").innerHTML = " ";
     var possible =
       "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^QWERTYUIOPASDFGHJKLZXCVBNM`~-_=+[{]}\|;:',<.>/?";
@@ -13,7 +19,7 @@ const Mainpage = () => {
     for (var i = 0; i < level; i++)
       keyvalue = possible.charAt(Math.floor(Math.random() * difficulty));
 
-
+   
     document.querySelector(".PRESS").innerHTML = keyvalue;
 
     document.addEventListener(
@@ -21,9 +27,8 @@ const Mainpage = () => {
       (event) => {
         event.stopImmediatePropagation();
         var name = event.key;
-        var code = event.code;
-
-        console.log(`Key pressed ${name} \r\n Key code value: ${code}`);
+        var code = event.code; 
+        
 
         document.querySelector(".key").innerHTML = name;
 
@@ -35,8 +40,18 @@ const Mainpage = () => {
           void document.querySelector(".timer__wrapper").offsetWidth;
           document.querySelector(".RESULT").innerHTML = "NICE!";
           starttimer();
+          life = 2
           setTimeout(function(){
             makeid(difficulty)}, 4000);
+            
+        }
+        else{
+          console.log("hmm")
+            life--
+            console.log(life)
+            if(life == 0){
+              gameover = true
+            }
         }
       },
       false
@@ -133,6 +148,10 @@ const Mainpage = () => {
 
       <div className="current__streak">
           Current Streak: <p className="current__streak--value">0</p>
+      </div>
+
+      <div className="current__life">
+          <img class="heart" alt="life" src={heart}></img>
       </div>
     </section>
   );
