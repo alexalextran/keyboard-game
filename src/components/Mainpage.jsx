@@ -1,61 +1,61 @@
 import React, { useState } from "react";
-import heart from '../assets/heartimage.png'
+import heart from "../assets/heartimage.png";
 
 const Mainpage = () => {
   var keyvalue = "Start!";
   var level = 1;
-  var streak = 0
-  var life = 2
-  var gameover = false
+  var streak = 0;
+  var life = 1;
+  var gameover = false;
 
   function makeid(difficulty) {
-    if(gameover==true){
-      return
+    if (gameover == true) {
+      return;
     }
     document.querySelector(".RESULT").innerHTML = " ";
+    document.querySelector(".heart").style.filter =""
+    document.querySelector(".heart").style.animationName =""
+
     var possible =
-      "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^QWERTYUIOPASDFGHJKLZXCVBNM`~-_=+[{]}\|;:',<.>/?";
+      "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^QWERTYUIOPASDFGHJKLZXCVBNM`~-_=+[{]}|;:',<.>/?";
 
     for (var i = 0; i < level; i++)
       keyvalue = possible.charAt(Math.floor(Math.random() * difficulty));
 
-   
     document.querySelector(".PRESS").innerHTML = keyvalue;
 
-    document.addEventListener(
-      "keypress",
-      (event) => {
-        event.stopImmediatePropagation();
-        var name = event.key;
-        var code = event.code; 
-        
+    document.addEventListener("keypress", executegame);
 
-        document.querySelector(".key").innerHTML = name;
+    function executegame(event) {
+      event.stopImmediatePropagation();
+      var name = event.key;
 
-        if (name == keyvalue) {
-          streak++
-          keyvalue = "";
-          document.querySelector(".current__streak--value").innerHTML = streak;
-          document.querySelector(".timer__wrapper").style.animation = "";
-          void document.querySelector(".timer__wrapper").offsetWidth;
-          document.querySelector(".RESULT").innerHTML = "NICE!";
-          starttimer();
-          life = 2
-          setTimeout(function(){
-            makeid(difficulty)}, 4000);
-            
+      document.querySelector(".key").innerHTML = name;
+
+      if (name == keyvalue) {
+        streak++;
+        keyvalue = "";
+        document.querySelector(".current__streak--value").innerHTML = streak;
+        document.querySelector(".timer__wrapper").style.animation = "";
+        void document.querySelector(".timer__wrapper").offsetWidth;
+        document.querySelector(".RESULT").innerHTML = "NICE!";
+        starttimer();
+        life = 1;
+        setTimeout(function () {
+          makeid(difficulty);
+        }, 4000);
+      } else {
+        console.log("hmm");
+        life--;
+        console.log(life);
+        document.querySelector(".heart").style.filter ="grayscale(1)"
+        document.querySelector(".heart").style.animationName ="shake"
+        if (life < 0) {
+          gameover = true;
+          document.removeEventListener("keypress", executegame);
         }
-        else{
-          console.log("hmm")
-            life--
-            console.log(life)
-            if(life == 0){
-              gameover = true
-            }
-        }
-      },
-      false
-    );
+      }
+    }
   }
 
   function starttimer() {
@@ -65,38 +65,29 @@ const Mainpage = () => {
 
   function setdifficulty(mode) {
     if (mode == "easy") {
-     
-
-     
       starttimer();
-      setTimeout(function(){
-        makeid(36)
-      },4000);
-      
+      setTimeout(function () {
+        makeid(36);
+      }, 4000);
     }
     if (mode == "medium") {
-    
       starttimer();
-  
-      setTimeout(function(){
-        makeid(68)
-      },4000);
+
+      setTimeout(function () {
+        makeid(68);
+      }, 4000);
     }
     if (mode == "programmer") {
-   
       starttimer();
-     
-      setTimeout(function(){
-        makeid(89)
-      },4000);
+
+      setTimeout(function () {
+        makeid(89);
+      }, 4000);
     }
-    
-    
   }
 
   return (
     <section>
-    
       <div className="header">
         <h1>Welcome to Reakt</h1>
         <p>Where we test how well you know your keyboard!</p>
@@ -147,11 +138,11 @@ const Mainpage = () => {
       </div>
 
       <div className="current__streak">
-          Current Streak: <p className="current__streak--value">0</p>
+        Current Streak <p className="current__streak--value"> 0</p>
       </div>
 
       <div className="current__life">
-          <img class="heart" alt="life" src={heart}></img>
+        <img className="heart" alt="life" src={heart}></img>
       </div>
     </section>
   );

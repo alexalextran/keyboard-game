@@ -101,7 +101,7 @@ button {
  }
 
  .PRESS{
-  margin-TOP: 70px;
+  margin-TOP: 20px;
   font-size: 60px;
   border-radius: 50px;
   animation: float 1s infinite alternate-reverse;
@@ -109,7 +109,28 @@ button {
  }
 
  .KEY__ENTERED{
-   margin-top: 30px; 
+  position: absolute;
+  bottom: 350px;
+  display: flex;
+  font-size: 30px;
+  width: 300px;
+  justify-content: space-between;
+  background-color: #27ae60;
+ }
+
+ .current__streak{
+   position: absolute;
+   bottom: 270px;
+   display: flex;
+   font-size: 30px;
+   width: 270px;
+   justify-content: space-between;
+   background-color: #27ae60;
+ }
+
+ .current__life{
+   position: absolute;
+   bottom: 200px;
  }
 
  @keyframes float{
@@ -124,4 +145,28 @@ button {
 
  .heart{
    width: 50px;
+   transition: all 1s;
+   animation-duration: 1s;
+ }
+
+ @keyframes shake {
+   10%{
+    transform: translateX(5px);
+   }
+   20%{
+    transform: translateX(-5px);
+   }
+   30%{
+    transform: translateX(5px);
+   }
+   40%{
+    transform: translateX(-5px);
+   }
+   50%{
+    transform: translateX(5px);
+   }
+   60%{
+    transform: translateX(-5px);
+   }
+   
  }
