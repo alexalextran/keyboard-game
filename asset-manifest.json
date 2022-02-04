@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/alexalextran/keyboard-game/static/css/main.3535ca7e.css",
-    "main.js": "/alexalextran/keyboard-game/static/js/main.614a4d25.js",
-    "static/js/787.b938ef1e.chunk.js": "/alexalextran/keyboard-game/static/js/787.b938ef1e.chunk.js",
-    "static/media/logo.svg": "/alexalextran/keyboard-game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/alexalextran/keyboard-game/index.html",
-    "main.3535ca7e.css.map": "/alexalextran/keyboard-game/static/css/main.3535ca7e.css.map",
-    "main.614a4d25.js.map": "/alexalextran/keyboard-game/static/js/main.614a4d25.js.map",
-    "787.b938ef1e.chunk.js.map": "/alexalextran/keyboard-game/static/js/787.b938ef1e.chunk.js.map"
+    "main.css": "/keyboard-game/static/css/main.3535ca7e.css",
+    "main.js": "/keyboard-game/static/js/main.ab0afef4.js",
+    "static/js/787.b938ef1e.chunk.js": "/keyboard-game/static/js/787.b938ef1e.chunk.js",
+    "static/media/logo.svg": "/keyboard-game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/keyboard-game/index.html",
+    "main.3535ca7e.css.map": "/keyboard-game/static/css/main.3535ca7e.css.map",
+    "main.ab0afef4.js.map": "/keyboard-game/static/js/main.ab0afef4.js.map",
+    "787.b938ef1e.chunk.js.map": "/keyboard-game/static/js/787.b938ef1e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3535ca7e.css",
-    "static/js/main.614a4d25.js"
+    "static/js/main.ab0afef4.js"
   ]
 }
