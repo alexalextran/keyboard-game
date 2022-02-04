@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Mainpage = () => {
   var keyvalue = "Start!";
   var level = 1;
+  var streak = 0
 
   function makeid(difficulty) {
     document.querySelector(".RESULT").innerHTML = " ";
@@ -27,7 +28,9 @@ const Mainpage = () => {
         document.querySelector(".key").innerHTML = name;
 
         if (name == keyvalue) {
+          streak++
           keyvalue = "";
+          document.querySelector(".current__streak--value").innerHTML = streak;
           document.querySelector(".timer__wrapper").style.animation = "";
           void document.querySelector(".timer__wrapper").offsetWidth;
           document.querySelector(".RESULT").innerHTML = "NICE!";
@@ -78,12 +81,7 @@ const Mainpage = () => {
 
   return (
     <section>
-      <button
-        onClick={() => {
-          starttimer();
-          setTimeout(makeid, 4000);
-        }}
-      ></button>
+    
       <div className="header">
         <h1>Welcome to Reakt</h1>
         <p>Where we test how well you know your keyboard!</p>
@@ -131,6 +129,10 @@ const Mainpage = () => {
       <div className="KEY__ENTERED">
         <p>Last Key Pressed</p>
         <p className="key"></p>
+      </div>
+
+      <div className="current__streak">
+          Current Streak: <p className="current__streak--value">0</p>
       </div>
     </section>
   );
