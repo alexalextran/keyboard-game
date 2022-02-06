@@ -25,6 +25,8 @@ const Mainpage = () => {
     document.querySelector(".PRESS").innerHTML = keyvalue;
 
     document.addEventListener("keypress", executegame);
+    start_timer()
+    
 
     function executegame(event) {
       event.stopImmediatePropagation();
@@ -33,6 +35,8 @@ const Mainpage = () => {
       document.querySelector(".key").innerHTML = name;
 
       if (name == keyvalue) {
+        stop_timer()
+        
         streak++;
         keyvalue = "";
         document.querySelector(".current__streak--value").innerHTML = streak;
@@ -62,6 +66,38 @@ const Mainpage = () => {
     document.querySelector(".timer__wrapper").style.animation =
       "timer 4s linear";
   }
+
+     
+      var timerOn = false
+      var msecVar = 0
+      var x
+      
+        function setMsec() {
+        
+          msecVar = msecVar + 1;
+         x = setTimeout(setMsec, 1);
+          document.getElementById("msec").innerHTML = `<p>${msecVar}</p>`
+      }
+      
+      function start_timer() {
+   
+        if (!timerOn) {
+          timerOn = true;
+          setMsec();
+        }
+      }
+      
+      function stop_timer() {
+          reset_timer()
+          clearTimeout(x);
+          timerOn = false;
+        }
+
+        function reset_timer() {
+         msecVar = 0
+      }
+      
+
 
   function setdifficulty(mode) {
     if (mode == "easy") {
@@ -144,6 +180,14 @@ const Mainpage = () => {
       <div className="current__life">
         <img className="heart" alt="life" src={heart}></img>
       </div>
+
+      <div className="timer">
+      <div id="msec">
+            00
+        </div>
+      </div>
+
+
     </section>
   );
 };
