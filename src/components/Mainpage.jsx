@@ -7,6 +7,7 @@ const Mainpage = () => {
   var streak = 0;
   var life = 1;
   var gameover = false;
+  var avg_time = []
 
   function makeid(difficulty) {
     if (gameover == true) {
@@ -35,6 +36,8 @@ const Mainpage = () => {
       document.querySelector(".key").innerHTML = name;
 
       if (name == keyvalue) {
+        avg_time.push(msecVar)
+        console.log(avg_time)
         stop_timer()
         
         streak++;
@@ -55,6 +58,11 @@ const Mainpage = () => {
         document.querySelector(".heart").style.filter ="grayscale(1)"
         document.querySelector(".heart").style.animationName ="shake"
         if (life < 0) {
+          stop_timer()
+          const sum = avg_time.reduce((a, b) => a + b, 0);
+          var average = (sum / avg_time.length).toFixed(0)
+          console.log(average)
+
           gameover = true;
           document.removeEventListener("keypress", executegame);
         }
@@ -74,7 +82,7 @@ const Mainpage = () => {
       
         function setMsec() {
         
-          msecVar = msecVar + 1;
+          msecVar = msecVar + 5;
          x = setTimeout(setMsec, 1);
           document.getElementById("msec").innerHTML = `<p>${msecVar}</p>`
       }
@@ -88,8 +96,9 @@ const Mainpage = () => {
       }
       
       function stop_timer() {
+        
+          clearTimeout(x);  
           reset_timer()
-          clearTimeout(x);
           timerOn = false;
         }
 
