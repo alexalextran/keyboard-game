@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import heart from "../assets/heartimage.png";
 
 const Mainpage = () => {
@@ -52,16 +52,19 @@ const Mainpage = () => {
           makeid(difficulty);
         }, 4000);
       } else {
-        console.log("hmm");
+
         life--;
-        console.log(life);
         document.querySelector(".heart").style.filter ="grayscale(1)"
         document.querySelector(".heart").style.animationName ="shake"
         if (life < 0) {
           stop_timer()
           const sum = avg_time.reduce((a, b) => a + b, 0);
-          var average = (sum / avg_time.length).toFixed(0)
-          console.log(average)
+          var average = (sum / avg_time.length).toFixed(0) || 0
+          
+          document.querySelector(".gameover").style.animation = "fade 800ms"
+          document.querySelector(".gameover").style.display ="flex"
+          document.getElementById("average").innerHTML = average
+          document.getElementById("streak").innerHTML = streak
 
           gameover = true;
           document.removeEventListener("keypress", executegame);
@@ -190,10 +193,18 @@ const Mainpage = () => {
         <img className="heart" alt="life" src={heart}></img>
       </div>
 
-      <div className="timer">
+      <div className="stopwatch">
       <div id="msec">
-            00
+            0
         </div>
+      </div>
+
+      <div className="gameover">
+            <div className="gameover__card">
+              <h2>Game Over</h2>
+              <p className="gameover__card--text">Nice try you got a streak of <span className="red" id="streak">14</span> and you averaged <span className="red" id="average">700ms</span></p>
+              <button>Wanna try again?</button>
+            </div>
       </div>
 
 

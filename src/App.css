@@ -108,9 +108,15 @@ button {
 
  }
 
+ .stopwatch{
+   position: absolute;
+   bottom: 370px;
+   font-size: 24px;
+ }
+
  .KEY__ENTERED{
   position: absolute;
-  bottom: 350px;
+  bottom: 300px;
   display: flex;
   font-size: 30px;
   width: 300px;
@@ -120,7 +126,7 @@ button {
 
  .current__streak{
    position: absolute;
-   bottom: 270px;
+   bottom: 230px;
    display: flex;
    font-size: 30px;
    width: 270px;
@@ -130,7 +136,7 @@ button {
 
  .current__life{
    position: absolute;
-   bottom: 200px;
+   bottom: 130px;
  }
 
  @keyframes float{
@@ -169,4 +175,46 @@ button {
     transform: translateX(-5px);
    }
    
+ }
+
+ .gameover{
+   z-index: 100;
+  background-color: rgb(230, 230, 230);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  display: none;
+ }
+ 
+ @keyframes fade {
+   0%{
+     opacity: 0;
+   }
+   100%{
+    opacity: 1;
+  }
+   
+ }
+
+ .gameover__card{
+   background-color: rgb(23,149,216);
+   border-radius: 25px;
+   display: flex;
+   text-align: center;
+   flex-direction: column;
+   padding: 50px;
+ }
+
+ .gameover__card--text{
+   padding: 20px 0px;
+ }
+
+ .red{
+   color: rgb(255, 0, 0);
+   font-weight: 600;
+   font-size: 22px;
  }
