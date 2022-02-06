@@ -132,10 +132,12 @@ const Mainpage = () => {
     if(!toggle_tutorial){
       document.querySelector(".tutorial").style.opacity = "0"
       document.querySelector(".tutorial").style.display = "none"
+      document.querySelector(".tutorial").style.animation = "none";
     }
     else{
       document.querySelector(".tutorial").style.opacity = "1"
       document.querySelector(".tutorial").style.display = "flex"
+      document.querySelector(".tutorial").style.animation = "fade 800ms";
     }
     toggle_tutorial = !toggle_tutorial
   }
@@ -221,6 +223,7 @@ const Mainpage = () => {
       <p className="tutorial__text">Wanna know how to play? Click on me!</p>
 
       <div className="tutorial"  onClick={() => toggle__tutorial()}>
+      Click outside the box to exit
         <div className="tutorial__card">
           <p>
             The moment you click a difficulty, you'll be given 3 seconds to
