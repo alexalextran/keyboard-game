@@ -100,7 +100,7 @@ button {
 
  .KEY__ENTERED{
   position: absolute;
-  bottom: 270px;
+  bottom: 220px;
   display: flex;
   font-size: 30px;
   width: fit-content;
@@ -114,7 +114,7 @@ button {
 
  .current__streak{
    position: absolute;
-   bottom: 200px;
+   bottom: 150px;
    display: flex;
    font-size: 30px;
    width: 250px;
@@ -130,7 +130,7 @@ button {
 
  .current__life{
    position: absolute;
-   bottom: 100px;
+   bottom: 70px;
  }
 
  @keyframes float{
