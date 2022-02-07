@@ -118,6 +118,12 @@ button {
    
  }
 
+ .current__streak--value{
+  animation-duration: 800ms;
+  color: red;
+  font-weight: 700;
+ }
+
  .current__life{
    position: absolute;
    bottom: 130px;

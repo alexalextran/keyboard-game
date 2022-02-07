@@ -15,7 +15,7 @@ const Mainpage = () => {
     if (gameover == true) {
       return;
     }
-  
+    document.querySelector(".current__streak--value").style.animationName = ""
     document.querySelector(".RESULT").innerHTML = " ";
     document.querySelector(".heart").style.filter = "";
     document.querySelector(".heart").style.animationName = "";
@@ -38,6 +38,7 @@ const Mainpage = () => {
       document.querySelector(".key").innerHTML = name;
 
       if (name == keyvalue) {
+        document.removeEventListener("keypress", executegame);
         avg_time.push(msecVar);
         console.log(avg_time);
         stop_timer();
@@ -45,6 +46,7 @@ const Mainpage = () => {
         streak++;
         keyvalue = "";
         document.querySelector(".current__streak--value").innerHTML = streak;
+        document.querySelector(".current__streak--value").style.animationName = "fade"
         document.querySelector(".timer__wrapper").style.animation = "";
         void document.querySelector(".timer__wrapper").offsetWidth;
         document.querySelector(".RESULT").innerHTML = "NICE!";
@@ -66,6 +68,7 @@ const Mainpage = () => {
           document.querySelector(".gameover").style.display = "flex";
           document.getElementById("average").innerHTML = average;
           document.getElementById("streak").innerHTML = streak;
+          
 
 
           if(window.localStorage.getItem('best_streak') == undefined){
