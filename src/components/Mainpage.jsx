@@ -51,7 +51,7 @@ const Mainpage = () => {
         life = 1;
         setTimeout(function () {
           makeid(difficulty);
-        }, 4000);
+        }, 3000);
       } else {
         life--;
         document.querySelector(".heart").style.filter = "grayscale(1)";
@@ -66,6 +66,18 @@ const Mainpage = () => {
           document.getElementById("average").innerHTML = average;
           document.getElementById("streak").innerHTML = streak;
 
+
+          if(window.localStorage.getItem('best_streak') == undefined){
+            window.localStorage.setItem('best_streak', `${streak}`);
+            window.localStorage.setItem('best_time', `${average}`);
+          }
+          if(window.localStorage.getItem('best_streak') < streak){
+            window.localStorage.setItem('best_streak', `${streak}`);
+          }
+          if(window.localStorage.getItem('best_time') < average){
+            window.localStorage.setItem('best_time', `${average}`);
+          }
+
           gameover = true;
           document.removeEventListener("keypress", executegame);
         }
@@ -75,7 +87,7 @@ const Mainpage = () => {
 
   function starttimer() {
     document.querySelector(".timer__wrapper").style.animation =
-      "timer 4s linear";
+      "timer 3s linear";
   }
 
   var timerOn = false;
@@ -110,21 +122,21 @@ const Mainpage = () => {
       starttimer();
       setTimeout(function () {
         makeid(36);
-      }, 4000);
+      }, 3000);
     }
     if (mode == "medium") {
       starttimer();
 
       setTimeout(function () {
         makeid(68);
-      }, 4000);
+      }, 3000);
     }
     if (mode == "programmer") {
       starttimer();
 
       setTimeout(function () {
         makeid(89);
-      }, 4000);
+      }, 3000);
     }
   }
 
@@ -185,6 +197,13 @@ const Mainpage = () => {
 
       <div className="RESULT"></div>
 
+
+      <div>
+        Best Streak:
+
+        Best avg time: 
+      </div>
+
       <div className="KEY__ENTERED">
         <p>Last Key Pressed</p>
         <p className="key"></p>
@@ -199,7 +218,7 @@ const Mainpage = () => {
       </div>
 
       <div className="stopwatch">
-        <div id="msec">0</div>
+        <div id="msec"></div>
       </div>
 
       <div className="gameover">
@@ -210,10 +229,10 @@ const Mainpage = () => {
             <span className="red" id="streak">
               14
             </span>{" "}
-            and you averaged{" "}
+            and you averaged{" "} 
             <span className="red" id="average">
-              700ms
-            </span>
+              700
+            </span> miliseconds
           </p>
           <button>Wanna try again?</button>
         </div>
