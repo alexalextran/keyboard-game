@@ -197,11 +197,17 @@ const Mainpage = () => {
 
       <div className="RESULT"></div>
 
+         
+      <div className="high__score">
+         { window.localStorage.getItem('best_streak') &&
+              <p>Best Streak: {window.localStorage.getItem('best_streak')}</p>
+          }
 
-      <div>
-        Best Streak:
+          { window.localStorage.getItem('best_time') &&
+             <p>Best avg time: {window.localStorage.getItem('best_time')}</p>
+          }
 
-        Best avg time: 
+        
       </div>
 
       <div className="KEY__ENTERED">
