@@ -1,20 +1,22 @@
 import React from "react";
 import heart from "../assets/heartimage.png";
 import frog from "../assets/frog.png";
+import tutorialphoto from "../assets/tutorialphoto.jpg"
 
 const Mainpage = () => {
   var keyvalue = "Start!";
-  var level = 1;
+
   var streak = 0;
   var life = 1;
   var gameover = false;
   var avg_time = [];
   var toggle_tutorial = true
 
-  function makeid(difficulty) {
+  function makeid(difficulty, difficulty__name) {
     if (gameover == true) {
       return;
     }
+   
     document.querySelector(".current__streak--value").style.animationName = ""
     document.querySelector(".RESULT").innerHTML = " ";
     document.querySelector(".heart").style.filter = "";
@@ -23,7 +25,7 @@ const Mainpage = () => {
     var possible =
       "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^QWERTYUIOPASDFGHJKLZXCVBNM`~-_=+[{]}|;:',<.>/?";
 
-    for (var i = 0; i < level; i++)
+    for (var i = 0; i < 1; i++)
       keyvalue = possible.charAt(Math.floor(Math.random() * difficulty));
 
     document.querySelector(".PRESS").innerHTML = keyvalue;
@@ -53,7 +55,7 @@ const Mainpage = () => {
         starttimer();
         life = 1;
         setTimeout(function () {
-          makeid(difficulty);
+          makeid(difficulty, difficulty__name);
         }, 3000);
       } else {
         life--;
@@ -68,6 +70,7 @@ const Mainpage = () => {
           document.querySelector(".gameover").style.display = "flex";
           document.getElementById("average").innerHTML = average;
           document.getElementById("streak").innerHTML = streak;
+          document.getElementById("go__level").innerHTML = difficulty__name;
           
 
 
@@ -78,7 +81,8 @@ const Mainpage = () => {
           if(window.localStorage.getItem('best_streak') < streak){
             window.localStorage.setItem('best_streak', `${streak}`);
           }
-          if(window.localStorage.getItem('best_time') < average){
+          
+          if(window.localStorage.getItem('best_time') < average && !isNaN(average)){
             window.localStorage.setItem('best_time', `${average}`);
           }
 
@@ -90,6 +94,10 @@ const Mainpage = () => {
   }
 
   function starttimer() {
+    (document.querySelectorAll(".difficulty__button")).forEach(button => {
+      button.style.pointerEvents = "none"
+    })
+
     document.querySelector(".timer__wrapper").style.animation =
       "timer 3s linear";
   }
@@ -126,7 +134,7 @@ const Mainpage = () => {
       document.querySelector(".high__score").style.opacity = "0";
       starttimer();
       setTimeout(function () {
-        makeid(36);
+        makeid(36, "easy");
       }, 3000);
     }
     if (mode == "medium") {
@@ -134,7 +142,7 @@ const Mainpage = () => {
       starttimer();
 
       setTimeout(function () {
-        makeid(68);
+        makeid(68, "medium");
       }, 3000);
     }
     if (mode == "programmer") {
@@ -142,7 +150,7 @@ const Mainpage = () => {
       starttimer();
 
       setTimeout(function () {
-        makeid(89);
+        makeid(89, "programmer");
       }, 3000);
     }
   }
@@ -171,21 +179,21 @@ const Mainpage = () => {
       </div>
 
       <div className="difficulty">
-        <button
+        <button className="difficulty__button"
           onClick={() => {
             setdifficulty("easy");
           }}
         >
           Easy
         </button>
-        <button
+        <button className="difficulty__button"
           onClick={() => {
             setdifficulty("medium");
           }}
         >
           Medium
         </button>
-        <button
+        <button className="difficulty__button"
           onClick={() => {
             setdifficulty("programmer");
           }}
@@ -246,8 +254,9 @@ const Mainpage = () => {
             <span className="red" id="average">
               700
             </span> miliseconds
+            on <span className="red" id="go__level"> </span>
           </p>
-          <button>Wanna try again?</button>
+          <button className="try__again" onClick={() => window.location.reload() }>Wanna try again?</button>
         </div>
       </div>
 
@@ -262,10 +271,11 @@ const Mainpage = () => {
             prepare, once the countdown ends, press the respective key on your
             keyboard that matches the key displayed on screen
           </p>
+          <img className="tutorial__photo" src={tutorialphoto}></img>
           <p>
             Also for each round, you have one life, incase you accidently fat
-            finger a key, and NOTE SOME KEYS REQUIRE YOU TO PRESS SHIFT/CAPSLOCK
-            FIRST I.E CAPITAL LETTERS
+            finger a key, and <b>NOTE SOME KEYS REQUIRE YOU TO PRESS SHIFT/CAPSLOCK
+            FIRST I.E CAPITAL LETTERS</b>
           </p>
         </div>
       </div>

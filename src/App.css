@@ -94,23 +94,27 @@ button {
 
  .stopwatch{
    position: absolute;
-   bottom: 370px;
+   bottom: 330px;
    font-size: 24px;
  }
 
  .KEY__ENTERED{
   position: absolute;
-  bottom: 300px;
+  bottom: 270px;
   display: flex;
   font-size: 30px;
-  width: 280px;
+  width: fit-content;
   justify-content: space-between;
 
  }
 
+ .key{
+   padding: 0px 10px;
+ }
+
  .current__streak{
    position: absolute;
-   bottom: 230px;
+   bottom: 200px;
    display: flex;
    font-size: 30px;
    width: 250px;
@@ -126,7 +130,7 @@ button {
 
  .current__life{
    position: absolute;
-   bottom: 130px;
+   bottom: 100px;
  }
 
  @keyframes float{
@@ -168,6 +172,7 @@ button {
  }
 
  .gameover{
+   pointer-events: none;
    z-index: 100;
   background-color: rgb(230, 230, 230);
   position: absolute;
@@ -210,7 +215,7 @@ button {
  }
 
 .tutorial__frog{
-  width: 200px;
+  width: 150px;
   position: absolute;
   top: 5px;
   left: 5px;
@@ -219,9 +224,16 @@ button {
 
 .tutorial__text{
   position: absolute;
-  top: 140px;
-  left: 20px;
-  width: 200px;
+  top: 110px;
+  left: 0px;
+  width: 150px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.tutorial__photo{
+  width: 300px;
+  padding: 20px 0px;
 }
 
 .tutorial{
@@ -241,7 +253,7 @@ background: rgba(0, 0, 0, 0.8);
 
 .tutorial__card{
   text-align: center;
-  height: 300px;
+  height: fit-content;
   background-color: white;
   width: 600px;
   padding: 50px;
@@ -250,6 +262,7 @@ background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
 }
 
 .high__score{
@@ -257,4 +270,8 @@ background: rgba(0, 0, 0, 0.8);
   flex-direction: column;
   font-size: 26px;
   transition: all 500ms;
+}
+
+.try__again{
+  pointer-events: fill;
 }
