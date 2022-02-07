@@ -27,7 +27,7 @@ const Mainpage = () => {
 
     for (var i = 0; i < 1; i++)
       keyvalue = possible.charAt(Math.floor(Math.random() * difficulty));
-
+      console.log(keyvalue)
     document.querySelector(".PRESS").innerHTML = keyvalue;
 
     document.addEventListener("keypress", executegame);
@@ -42,7 +42,7 @@ const Mainpage = () => {
       if (name == keyvalue) {
         document.removeEventListener("keypress", executegame);
         avg_time.push(msecVar);
-        console.log(avg_time);
+        
         stop_timer();
 
         streak++;
@@ -150,7 +150,7 @@ const Mainpage = () => {
       starttimer();
 
       setTimeout(function () {
-        makeid(89, "programmer");
+        makeid(88, "programmer");
       }, 3000);
     }
   }
