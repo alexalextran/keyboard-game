@@ -15,6 +15,7 @@ const Mainpage = () => {
     if (gameover == true) {
       return;
     }
+  
     document.querySelector(".RESULT").innerHTML = " ";
     document.querySelector(".heart").style.filter = "";
     document.querySelector(".heart").style.animationName = "";
@@ -119,12 +120,14 @@ const Mainpage = () => {
 
   function setdifficulty(mode) {
     if (mode == "easy") {
+      document.querySelector(".high__score").style.opacity = "0";
       starttimer();
       setTimeout(function () {
         makeid(36);
       }, 3000);
     }
     if (mode == "medium") {
+      document.querySelector(".high__score").style.opacity = "0";
       starttimer();
 
       setTimeout(function () {
@@ -132,6 +135,7 @@ const Mainpage = () => {
       }, 3000);
     }
     if (mode == "programmer") {
+      document.querySelector(".high__score").style.opacity = "0";
       starttimer();
 
       setTimeout(function () {
