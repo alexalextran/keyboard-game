@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/keyboard-game/static/css/main.f9c91a2f.css",
+    "main.css": "/keyboard-game/static/css/main.fcb75d96.css",
     "main.js": "/keyboard-game/static/js/main.1da9a8f7.js",
     "static/js/787.b938ef1e.chunk.js": "/keyboard-game/static/js/787.b938ef1e.chunk.js",
     "static/media/frog.png": "/keyboard-game/static/media/frog.daaed11bf7315596e450.png",
@@ -8,12 +8,12 @@
     "static/media/tutorialphoto.jpg": "/keyboard-game/static/media/tutorialphoto.0daf8228240e5356855e.jpg",
     "static/media/logo.svg": "/keyboard-game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/keyboard-game/index.html",
-    "main.f9c91a2f.css.map": "/keyboard-game/static/css/main.f9c91a2f.css.map",
+    "main.fcb75d96.css.map": "/keyboard-game/static/css/main.fcb75d96.css.map",
     "main.1da9a8f7.js.map": "/keyboard-game/static/js/main.1da9a8f7.js.map",
     "787.b938ef1e.chunk.js.map": "/keyboard-game/static/js/787.b938ef1e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9c91a2f.css",
+    "static/css/main.fcb75d96.css",
     "static/js/main.1da9a8f7.js"
   ]
 }
